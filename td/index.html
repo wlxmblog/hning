@@ -276,13 +276,13 @@
 
   
   <script type="text/javascript">
-    var mins = Array.from(document.querySelectorAll('.list-1>li'))
-    var bigs = Array.from(document.querySelectorAll('.list-2>li'))
+    var mins = document.querySelectorAll('.list-1>li')
+    var bigs = document.querySelectorAll('.list-2>li')
     var bigBox = document.querySelector('.list-2')
-    mins.forEach(function(item, id) {
+    Array.prototype.forEach.call(mins, function(item, id) {
       item.style.left = (id - 1) * 63 + 622 + 'px'
     })
-    mins.forEach(function(item, id) {
+    Array.prototype.forEach.call(mins, function(item, id) {
       item.onmouseover = function () {
         console.log(id)
         this.style.left = id * 63 + 'px'
@@ -292,7 +292,7 @@
         for(var _j = id; _j < mins.length; _j++) {
           mins[_j].style.left = (_j - 1) * 63 + 622 + 'px'
         }
-        bigs.forEach(function(e, i) {
+        Array.prototype.forEach.call(bigs, function(e, i) {
           e.className = e.className.replace(/active/, '')
         })
         bigs[id].className += 'active'
