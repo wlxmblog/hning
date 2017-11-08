@@ -6,7 +6,7 @@
   <style>
     * {margin: 0; padding: 0;}
     li {list-style: none;}
-    body {position: absolute; top: 0; left: 0; bottom: 0; right: 0; background-image: url(img/head-bg-1.jpg); background-size: 100%; background-repeat: no-repeat;}
+    body {position: absolute; top: 0; left: 0; bottom: 0; right: 0; background-image: url(img/head-bg-1.jpg); background-position-x: 50%; background-repeat: no-repeat;}
     td {text-align: center;}
     a {text-decoration: none;}
     .btn {display: inline-block; padding: 20px; background: #06caa6; color: #FFF; font-size: 30px; font-weight: bold}
@@ -15,10 +15,10 @@
     .black {background: #1c1c1c; font-size: 18px; line-height: 25px; color: orange; padding: 20px 40px; text-align: left;}
     .black small {padding-left: 38px; color: #FFF}
     .black i {display: inline-block; width: 38px; height: 38px; background-image: url(img/spr-2.png);}
-    .head-1 {margin-top: 23%}
+    .head-1 {margin-top: 23%; overflow: hidden;}
     .act-img-box img{ padding-left: 31px }
     .padding {padding-top: 50px}
-    .g-nice-box {height: 514px; background-image: url(img/bg-1.jpg);}
+    .g-nice-box {height: 514px; background-image: url(img/bg-1.jpg); background-position-x: 50%; width: 100%}
     .g-bottom-box {height: 650px; background-image: url(img/bg-5.jpg); background-position: bottom;}
     .g-bottom-box .author-info {width: 500px; margin: auto; text-align: left; margin-top: 450px}
     .m-box {display: inline-block; background-image: url(img/bg-4.jpg); width: 1000px; height: 291px;}
@@ -58,17 +58,17 @@
     .u-diamond {display: inline-block; width: 40px; height: 40px; border: 1px solid #FFF; -webkit-transform: rotate(45deg);-ms-transform: rotate(45deg);-o-transform: rotate(45deg);transform: rotate(45deg); margin: 30px 0;}
     .u-45 {display: inline-block; font-size: 22px; text-align: center; -webkit-transform: rotate(-45deg);-ms-transform: rotate(-45deg);-o-transform: rotate(-45deg);transform: rotate(-45deg); text-shadow: #333 2px 2px 2px}
     .u-more {display: inline-block; padding: 5px; border-radius: 10px; background: #3ed2b2; margin-top: 20px}
-    .rotate {position: absolute;left: 50%; margin-left: -210px; margin-top: 22px;  width: 310px; height: 310px; border-radius: 50%; border: dashed 50px rgba(255, 0, 0 , 0.8); line-height: 360px; animation: rotateR 60s infinite}
+    .rotate {position: absolute;left: 50%; margin-left: -210px; margin-top: 22px;  width: 310px; height: 310px; border-radius: 50%; border: dashed 50px rgba(0, 0, 0 , 0.8); line-height: 360px; animation: rotateR 25s infinite}
     .rotateimg {display: block; position: absolute;left: 50%; margin-left: -154px; margin-top: 77px;}
-    .outer-rotate {position: absolute; left: 50%; margin-left: -230px; width: 400px; height: 400px; border: dashed 25px rgba(255, 0, 0 , 0.5); border-radius: 50%; animation: rotate 50s infinite;}
+    .outer-rotate {position: absolute; left: 50%; margin-left: -230px; width: 400px; height: 400px; border: dashed 25px rgba(0, 0, 0 , 0.5); border-radius: 50%; animation: rotate 25s infinite;}
     @keyframes rotate {
       0% {transform: rotate(0);}
-      50% {transform: rotate(360deg);}
+      50% {transform: rotate(360deg); box-shadow: #999 0 0 40px}
       0% {transform: rotate(0);}
     }
     @keyframes rotateR {
       0% {transform: rotate(0);}
-      50% {transform: rotate(-360deg);}
+      50% {transform: rotate(-360deg); box-shadow: #999 0 0 20px}
       0% {transform: rotate(0);}
     }
   </style>
@@ -85,9 +85,9 @@
       <tr>
         <td class="act-img-box">
           <div class="padding"></div>
-          <a href="#"><img src="img/list-1.jpg" alt="" style="width: 17%"></a>
-          <a href="#"><img src="img/list-2.jpg" alt="" style="width: 17%"></a>
-          <a href="#"><img src="img/list-3.jpg" alt="" style="width: 17%"></a>
+          <a href="#"><img src="img/list-1.jpg" alt="" style="width: 15%"></a>
+          <a href="#"><img src="img/list-2.jpg" alt="" style="width: 15%"></a>
+          <a href="#"><img src="img/list-3.jpg" alt="" style="width: 15%"></a>
         </td>
       </tr>
       <tr>
