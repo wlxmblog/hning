@@ -1,171 +1,304 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>沈阳师范大学</title>
-<style>
-  p {
-    text-indent: 2em
-  }
-  img {
-    float: right;
-  }
-  a {
-    color: white
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>天涯明月刀</title>
+  <style>
+    * {margin: 0; padding: 0;}
+    li {list-style: none;}
+    body {position: absolute; top: 0; left: 0; bottom: 0; right: 0; background-image: url(img/head-bg-1.jpg); background-position-x: 50%; background-repeat: no-repeat;}
+    td {text-align: center;}
+    a {text-decoration: none;}
+    .btn {display: inline-block; padding: 20px; background: #06caa6; color: #FFF; font-size: 30px; font-weight: bold}
+    .btn+.btn {margin-left: 30px}
+    .orange {background: orange}
+    .black {background: #1c1c1c; font-size: 18px; line-height: 25px; color: orange; padding: 20px 40px; text-align: left;}
+    .black small {padding-left: 38px; color: #FFF}
+    .black i {display: inline-block; width: 38px; height: 38px; background-image: url(img/spr-2.png);}
+    .head-1 {margin-top: 23%; overflow: hidden;}
+    .act-img-box img{ padding-left: 31px }
+    .padding {padding-top: 50px}
+    .g-nice-box {height: 514px; background-image: url(img/bg-1.jpg); background-position-x: 50%; width: 100%}
+    .g-bottom-box {height: 650px; background-image: url(img/bg-5.jpg); background-position: bottom;}
+    .g-bottom-box .author-info {width: 500px; margin: auto; text-align: left; margin-top: 450px}
+    .m-box {display: inline-block; background-image: url(img/bg-4.jpg); width: 1000px; height: 291px;}
+    .m-block {display: inline-block; overflow: hidden; position: relative; float: left; padding: 30px 0 30px 0; width: 200px; height: 231px; color: #FFF; text-align: center; font-size: 12px}
+    .m-block h1 {font-size: 18px}
+    .hover-bg {display: inline-block; position: absolute; top: 50%; left: 50%; width: 10px;height: 10px; transform-origin: center; -webkit-transform: scale(0);-ms-transform: scale(0);-o-transform: scale(0);transform: scale(0); background-color: #3ed2b2; transition: all .5s; border-radius: 50%; opacity: 0}
+    .m-block:hover .hover-bg {opacity: 1; webkit-transform: scale(50);-ms-transform: scale(50);-o-transform: scale(50);transform: scale(50);}
+    .m-block:hover .u-more {background-color: #333}
+    .content {position: relative; z-index: 1}
+    .container{
+      -webkit-box-reflect: below 0 -webkit-linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,.0) 30%,rgba(250,250,250,0.3));
+      box-reflect: below 0 linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,.0) 30%,rgba(250,250,250,0.3));
+    }
+    .outer {position: relative; height: 603px; background-image: url(img/bg-2.jpg);}
+    .container {position: absolute; left: 50%; transform: translateX(-50%);}
+    .container,
+    .list-1{width: 1063px; height: 350px;}
+    .list-1 {position: absolute}
+    .list-1 li {position: absolute; width: 63px; height: 350px}
+    .list-2 {position: absolute; width: 622px; height: 350px; transition: all 0.3s ease-in-out}
+    .list-2 li {position: absolute; width: 622px; height: 350px; background-image: url(img/men-bg.jpg); opacity: 0; z-index: 0}
+    .list-2 li>img {position: absolute; bottom: 0; right: 0}
+    .active {z-index: 1 !important; opacity: 1 !important}
+    .text {color: #EEE; width: 240px; padding:30px 270px 0 50px; font-size: 12px}
+    .text h1 {color: #cfae69; font-size: 60px}
+    .text h5 {color: #2fc3a2; font-size: 16px}
+    .text p {line-height: 20px; padding: 10px 0;}
+    .text h1>i {display: inline-block; width: 38px; height: 38px;background-image: url(img/spr-2.png);}
+    .shendao {background-position: 38px 38px}
+    .taibai {background-position: 79px 38px}
+    .shenwei {background-position: 123px 38px}
+    .tangmen {background-position: 166px 38px}
+    .wudu {background-position: 209px 38px}
+    .tianxiang {background-position: 252px 38px}
+    .zhenwu {background-position: 294px 38px}
+    .gaibang {background-position: 0px 38px}
+    .u-diamond {display: inline-block; width: 40px; height: 40px; border: 1px solid #FFF; -webkit-transform: rotate(45deg);-ms-transform: rotate(45deg);-o-transform: rotate(45deg);transform: rotate(45deg); margin: 30px 0;}
+    .u-45 {display: inline-block; font-size: 22px; text-align: center; -webkit-transform: rotate(-45deg);-ms-transform: rotate(-45deg);-o-transform: rotate(-45deg);transform: rotate(-45deg); text-shadow: #333 2px 2px 2px}
+    .u-more {display: inline-block; padding: 5px; border-radius: 10px; background: #3ed2b2; margin-top: 20px}
+    .rotate {position: absolute;left: 50%; margin-left: -210px; margin-top: 22px;  width: 310px; height: 310px; border-radius: 50%; border: dashed 50px rgba(0, 0, 0 , 0.8); line-height: 360px; animation: rotateR 25s infinite}
+    .rotateimg {display: block; position: absolute;left: 50%; margin-left: -154px; margin-top: 77px;}
+    .outer-rotate {position: absolute; left: 50%; margin-left: -230px; width: 400px; height: 400px; border: dashed 25px rgba(0, 0, 0 , 0.5); border-radius: 50%; animation: rotate 25s infinite;}
+    @keyframes rotate {
+      0% {transform: rotate(0);}
+      50% {transform: rotate(360deg); box-shadow: #999 0 0 40px}
+      0% {transform: rotate(0);}
+    }
+    @keyframes rotateR {
+      0% {transform: rotate(0);}
+      50% {transform: rotate(-360deg); box-shadow: #999 0 0 20px}
+      0% {transform: rotate(0);}
+    }
+  </style>
 </head>
-<body style="width: 1024px; margin: auto;">
-  <table>
-    <tr>
-      <td colspan="4">
-        <table width="100%" bgcolor="green">
-          <tr>
-            <th><a href="http://www.synu.edu.cn/synucn/p1.html">学校概况</a></th>
-            <th><a href="http://zs.synu.edu.cn/">招生就业</a></th>
-            <th><a href="http://jwc.synu.edu.cn/">本科教育</a></th>
-            <th><a href="http://yjs.synu.edu.cn/index.html">研究生教育</a></th>
-          </tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <h1>沈阳师范大学</h1>
-        <h6>Shenyang Normal University</h6>
-        <p>
-          沈阳师范大学（Shenyang Normal University），位于辽宁省沈阳市，由辽宁省人民政府举办并主管，[1]  入选教育部“卓越法律人才教育培养计划”、“卓越教师培养计划”，为教育部首批开展专业学位研究生教育综合改革试点高校，是一所涵盖哲学、经济学、法学、教育学、文学、理学、工学、管理学、艺术学等九大门类的多科性大学。</p> 
-        <p>沈阳师范大学始建于1951年，其前身为东北教育学院，1953年更名为沈阳师范学院；1965年更名为辽宁第一师范学院；1978年恢复沈阳师范学院校名。2002年，沈阳师范学院与辽宁教育学院合并组建为沈阳师范大学。</p>
-        <p>据2017年8月学校官网信息显示，沈阳师范大学占地面积1840余亩，建筑面积64万余平方米，教学设备仪器总值2.4063亿元，馆藏图书218万余册；下设有二级学院26个、本科专业76个；有专任教师1545人，全日制本科生20000余人，硕士研究生3300余人，留学生1000余人。</p>
-      </td>
-      <td>
-        <img src="img/logo.jpg" alt="">
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <table width="100%">
-          <tr>
-            <th height="30">创办时间</th>
-            <td>1951年5月</td>
-            <th>所属地区</th>
-            <td>中国辽宁省沈阳市</td>
-          </tr>
-          <tr>
-            <th height="30">学校类型</th>
-            <td>师范（综合类）</td>
-            <th>属性</th>
-            <td>卓越法律人才教育培养计划（2012年）</td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <th colspan="4" align="left"><h2>历史前沿</h2></th>
-    </tr>
-    <tr>
-      <td colspan="4" align="left"><font size="4">合并前身</font></td>
-    </tr>
-    <tr>
-      <td colspan="4">
-        沈阳师范大学于2002年由沈阳师范学院与辽宁教育学院合并组建而成。
-      </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-        <ul>
-          <li>沈阳师范学院</li>
-        </ul>
-        <p>
-          1951年3月，东北人民政府教育部决定创办东北教师学院，同年4月改称为东北教育学院。
-        </p>
-        <img src="img/1.jpg" alt="">
-        <p>
-          1951年5月，东北人民政府教育部正式批准成立东北教育学院。
-        </p>
-        <p>
-          1953年5月，东北行政委员会教育局将辽东、辽西、沈阳等七所师范专科学校调整合并为三所院校，即东北教育学院、哈尔滨师范专科学校及大连师范专科学校。
-        </p>
-        <p>
-          1953年9月，东北教育学院更名为沈阳师范学院，郭沫若题写校名。
-        </p>
-        <p>
-          1965年10月，学校正式更名为辽宁第一师范学院。
-        </p>
-        <p>
-          1969年12月，省革委员会决定撤销锦州师范学院，并将该院的物理系、化学系调入辽宁第一师范学院，学院在此基础上组建了工业基础系和农业基础系。
-        </p>
-        <p>
-          1973年7月，学校组建辽宁第一师范学院锦州分院，并将物理、化学两个系掉回锦州，与原锦州师范学院旧部在旧址上建设了锦州分院。
-        </p>
-        <p>
-          1976年，辽宁第一师范学院迁回沈阳，恢复沈阳师范学院校名，学院隶属关系确定为省、市共管，以市管为主，同时决定将“辽宁第一师范学院”锦州分院改为锦州师范学院。
-        </p>
-        <p>
-          1982年，学校划归为辽宁省人民政府管理。
-        </p>
-        <p>
-          1984年，学校取得硕士学位授予权。[6] 
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-        <ul>
-          <li>辽宁教育学院</li>
-        </ul>
-        <p>
-          辽宁教育学院是在原辽宁省教育行政干部学校、辽宁函授学院和辽宁省教师进修学院以及辽宁省中小学教学研究室基础上组建而成的。原辽宁省教育行政干部学校创建于1956年3月，辽宁函授学院成立于1962年，辽宁省教师进修学院建立于1957年10月。
-        </p>
-        <p>
-          1951年5月，东北人民政府教育部正式批准成立东北教育学院。
-        </p>
-        <img src="img/2.jpg" alt="">
-        <p>
-          1953年5月，东北行政委员会教育局将辽东、辽西、沈阳等七所师范专科学校调整合并为三所院校，即东北教育学院、哈尔滨师范专科学校及大连师范专科学校。
-        </p>
-        <p>
-          1953年9月，东北教育学院更名为沈阳师范学院，郭沫若题写校名。
-        </p>
-        <p>
-          1965年10月，学校正式更名为辽宁第一师范学院。
-        </p>
-        <p>
-          1969年12月，省革委员会决定撤销锦州师范学院，并将该院的物理系、化学系调入辽宁第一师范学院，学院在此基础上组建了工业基础系和农业基础系。
-        </p>
-        <p>
-          1973年7月，学校组建辽宁第一师范学院锦州分院，并将物理、化学两个系掉回锦州，与原锦州师范学院旧部在旧址上建设了锦州分院。
-        </p>
-        <p>
-          1976年，辽宁第一师范学院迁回沈阳，恢复沈阳师范学院校名，学院隶属关系确定为省、市共管，以市管为主，同时决定将“辽宁第一师范学院”锦州分院改为锦州师范学院。
-        </p>
-        <p>
-          1982年，学校划归为辽宁省人民政府管理。
-        </p>
-        <p>
-          1984年，学校取得硕士学位授予权。
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-        <img src="img/3.png" alt="">
-      </td>
-    </tr>
+<body>
+  <table width="100%" class="head-1">
+    <tbody>
+      <tr>
+        <td>
+          <a href="#" class="btn">进入官网</a>
+          <a href="#" class="btn orange">下载游戏</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="act-img-box">
+          <div class="padding"></div>
+          <a href="#"><img src="img/list-1.jpg" alt="" style="width: 15%"></a>
+          <a href="#"><img src="img/list-2.jpg" alt="" style="width: 15%"></a>
+          <a href="#"><img src="img/list-3.jpg" alt="" style="width: 15%"></a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="padding"></div>
+          <a href="#" class="btn black"><i class="shendao"></i>新手指南<br><small>玩转天涯不用愁</small></a>
+          <a href="#" class="btn black"><i class="taibai"></i>游戏特色<br><small>玩转天涯不用愁</small></a>
+          <a href="#" class="btn black"><i class="tianxiang"></i>活动中心<br><small>玩转天涯不用愁</small></a>
+          <a href="#" class="btn black"><i class="zhenwu"></i>设定站<br><small>玩转天涯不用愁</small></a>
+          <div class="padding"></div>
+          <div class="padding"></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="g-nice-box">
+          <div class="m-box">
+            <a href="#" class="m-block">
+              <div class="content">
+                <i class="u-diamond"><span class="u-45">01</span></i>
+                <h1>航海玩法</h1>
+                <h1>扬帆起航</h1>
+                <b class="u-more">查看详情</b>
+              </div>
+              <span class="hover-bg"></span>
+            </a>
+            <a href="#" class="m-block">
+              <div class="content">
+                <i class="u-diamond"><span class="u-45">02</span></i>
+                <h1>航海玩法</h1>
+                <h1>扬帆起航</h1>
+                <b class="u-more">查看详情</b>
+              </div>
+              <span class="hover-bg"></span>
+            </a>
+            <a href="#" class="m-block">
+              <div class="content">
+                <i class="u-diamond"><span class="u-45">03</span></i>
+                <h1>航海玩法</h1>
+                <h1>扬帆起航</h1>
+                <b class="u-more">查看详情</b>
+              </div>
+              <span class="hover-bg"></span>
+            </a>
+            <a href="#" class="m-block">
+              <div class="content">
+                <i class="u-diamond"><span class="u-45">04</span></i>
+                <h1>航海玩法</h1>
+                <h1>扬帆起航</h1>
+                <b class="u-more">查看详情</b>
+              </div>
+              <span class="hover-bg"></span>
+            </a>
+            <a href="#" class="m-block">
+              <div class="content">
+                <i class="u-diamond"><span class="u-45">05</span></i>
+                <h1>航海玩法</h1>
+                <h1>扬帆起航</h1>
+                <b class="u-more">查看详情</b>
+              </div>
+              <span class="hover-bg"></span>
+            </a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="outer">
+            <div class="container">
+              <ul class="list-1">
+                <li><img src="img/shendao.jpg" alt=""></li>
+                <li><img src="img/taibai.jpg" alt=""></li>
+                <li><img src="img/shenwei.jpg" alt=""></li>
+                <li><img src="img/tangmen.jpg" alt=""></li>
+                <li><img src="img/wudu.jpg" alt=""></li>
+                <li><img src="img/tianxiang.jpg" alt=""></li>
+                <li><img src="img/zhenwu.jpg" alt=""></li>
+                <li><img src="img/gaibang.jpg" alt=""></li>
+              </ul>
+              <ul class="list-2">
+                <li class="active">
+                  <div class="text">
+                    <h1>神刀<i class="shendao"></i></h1>
+                    <h5>刀含杀气腾幽朔，萧飒寒芒泣鬼神</h5>
+                    <p>
+                      长刀掠世，雄鹰相随，勇者初心无惧，仁者自可无敌。神刀乃傅红雪叶开所在之门派，江湖中第一用刀之门派，亦是八荒中最为特立独行、潇洒率性之门派...
+                    </p>
+                  </div>
+                  <img src="img/shendao.png" alt="">
+                </li>
+                <li>
+                  <div class="text">
+                    <h1>太白<i class="taibai"></i></h1>
+                    <h5>流星白羽光出匣，一剑无痕雪漫山</h5>
+                    <p>
+                      流星白羽光出匣，一剑无痕雪漫山
+                      风无痕本是开封府司录司参军事，负责协助捕门之人，利用强大的分析能力来推理查案。在多年的查案之中，风无痕因偶然机会获取本被认为是医书的《破穴论》...
+                    </p>
+                  </div>
+                  <img src="img/taibai.png" alt="">
+                </li>
+                <li>
+                  <div class="text">
+                    <h1>神威<i class="shenwei"></i></h1>
+                    <h5>神威倒卷翻空浪，一举冲霄气势雄</h5>
+                    <p>
+                      后周副都指挥使韩通于954年创立“神威营”，忠诚守护后周皇室安全。韩通之子韩微，曾几次劝说父亲除去后周重臣赵匡胤，但韩通却欣赏赵匡胤之人才气度...
+                    </p>
+                  </div>
+                  <img src="img/shenwei.png" alt="">
+                </li>
+                <li>
+                  <div class="text">
+                    <h1>唐门<i class="tangmen"></i></h1>
+                    <h5>雾霭云从飞星落，半影相依扇中情</h5>
+                    <p>
+                      蜀中唐氏，自魏晋起便为世家。五代十国之时，唐门少主唐郢化名卢郢，游历江南，更是进士及第，成为南唐的文武双进士，天下闻名...
+                    </p>
+                  </div>
+                  <img src="img/tangmen.png" alt=""></li>
+                <li>
+                  <div class="text">
+                    <h1>五毒<i class="wudu"></i></h1>
+                    <h5>动游碧落心无碍，静藏深渊迹绝踪</h5>
+                    <p>
+                      地处云滇的五毒与中原诸派均有所不同，其武学以狠、诡、毒、快为要诀，以诡秘凌厉的刀法配合神鬼莫测的身法，可谓是举手之间、取人性命；轻烟散尽、乃见五毒。
+                    </p>
+                  </div>
+                  <img src="img/wudu.png" alt=""></li>
+                <li>
+                  <div class="text">
+                    <h1>天香<i class="tianxiang"></i></h1>
+                    <h5>竞夸天下双无绝，独立人间第一香</h5>
+                    <p>
+                      华佗当年被处死之前，将其一生所学著为《青囊书》一卷。数百年后，少年桑柴子偶得此书，修习医术，其第一个救下之人，便是官宦千金员外之女...
+                    </p>
+                  </div>
+                  <img src="img/tianxiang.png" alt=""></li>
+                <li>
+                  <div class="text">
+                    <h1>真武<i class="zhenwu"></i></h1>
+                    <h5>灵妙潜通乘风起，太极玄虚若镜清</h5>
+                    <p>
+                      真武祖师张梦白本是书香门第出身，屡试不中时竟在襄州山中偶遇一似癫似疯之道人扶摇子。得其点化，张梦白以文入武，更习得驱影之术...
+                    </p>
+                  </div>
+                  <img src="img/zhenwu.png" alt=""></li>
+                <li>
+                  <div class="text">
+                    <h1>丐帮<i class="gaibang"></i></h1>
+                    <h5>醉来豪气不可收，嘘作长虹贯牛斗</h5>
+                    <p>
+                      丐帮最早的源流可追溯到春秋时期，但正式作为一个门派存在于江湖之中，则是从唐末开始。黄巢起义中，某金姓将领因不满义军暴虐残害百姓...
+                    </p>
+                  </div>
+                  <img src="img/gaibang.png" alt=""></li>
+              </ul>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="g-bottom-box">
+          <div class="outer-rotate"></div>
+          <div class="rotate"></div>
+          <img src="img/logo.png" width="300" height="300" class="rotateimg">
+          <table class="author-info">
+            <thead>
+              <tr>
+                <th>班级：</th>
+                <th>姓名：</th>
+                <th>学号：</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>计算机科学与技术14班</td>
+                <td>舒建波</td>
+                <td>17129140</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
   </table>
-  <tr>
-    <td colspan="4">
-      <table>
-        <tr>
-          <th>班级：</th>
-          <td>软件学院14班</td>
-        </tr>
-        <tr>
-          <th>姓名：</th>
-          <td>软件学院14班</td>
-        </tr>
-      </table>
-    </td>
-  </tr>
+
+  
+  <script type="text/javascript">
+    var mins = document.querySelectorAll('.list-1>li')
+    var bigs = document.querySelectorAll('.list-2>li')
+    var bigBox = document.querySelector('.list-2')
+    Array.prototype.forEach.call(mins, function(item, id) {
+      item.style.left = (id - 1) * 63 + 622 + 'px'
+    })
+    Array.prototype.forEach.call(mins, function(item, id) {
+      item.onmouseover = function () {
+        console.log(id)
+        this.style.left = id * 63 + 'px'
+        for(var _i = 0; _i < id; _i++) {
+          mins[_i].style.left = _i * 63 + 'px'
+        }
+        for(var _j = id; _j < mins.length; _j++) {
+          mins[_j].style.left = (_j - 1) * 63 + 622 + 'px'
+        }
+        Array.prototype.forEach.call(bigs, function(e, i) {
+          e.className = e.className.replace(/active/, '')
+        })
+        bigs[id].className += 'active'
+        bigBox.style.left = id * 63 + 'px'
+      }
+    })
+  </script>
 </body>
 </html>
