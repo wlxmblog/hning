@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>百度按钮</title>
+  <style>
+    html, body, a, input {
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none
+    }
+    .key, .btn {
+      float: left;
+    }
+    #logo {
+      display: block;
+      margin: 0 auto;
+      width: 270px;
+    }
+    .container {
+      overflow: hidden;
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      margin-left: -330px;
+    }
+    .key {
+      width: 558px;
+      height: 34px;
+      border: 1px solid #CCC;
+      text-indent: 1em;
+    }
+    .key:focus {
+      outline: none;
+    }
+    .btn {
+      display: inline-block;
+      width: 98px;
+      height: 34px;
+      text-align: center;
+      line-height: 34px;
+      font-size: 15px;
+      color: #FFF;
+      background-color: #3385ff;
+      border: 1px solid #3385ff;
+    }
+    .btn:hover {
+      background-color: #5d9cfa;
+      border: 1px solid #5d9cfa;
+      box-shadow: #CCC 1px 1px 2px
+    }
+    .form {
+      width: 660px;
+      margin: 22px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="img/bd.png" alt="baidu" id="logo">
+    <div class="form">
+      <input type="text" class="key" placeholder="舒建波 17129140">
+      <a href="baidu.com" class="btn">百度一下</a>  
+    </div>
+  </div>
+  <script>
+    var btn = document.querySelector('.btn'),
+        input = document.querySelector('.key'),
+        api = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=';
+    window.onkeydown = function (e) {
+      if (e.keyCode === 13) {
+        window.location.href = api + input.value;
+       }
+    }
+    btn.onclick = function () {
+      this.href = api + input.value
+    }
+  </script>
+</body>
+</html>
