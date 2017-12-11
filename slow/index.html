@@ -171,11 +171,8 @@ function audioAutoPlay(id){
   }, false)
   document.addEventListener("touchstart",play, false)
 }
-function startPlay() {
+function playToggle() {
   document.getElementById('music').pause()
-}
-function stopPlay() {
-  audioAutoPlay('music')
 }
 audioAutoPlay('music')
 </script>
