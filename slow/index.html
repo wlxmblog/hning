@@ -5,9 +5,13 @@
   <meta charset="UTF-8">
   <title>个人网站</title>
 <link href="static/css/style.css" rel="stylesheet"></head>
-
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>粒子效果</title>
+  <style lang="">
+    .bg {position: absolute; top: 0; right: 0; bottom: 0; left: 0; overflow: hidden; background-image: url(./dist/img/bg.jpg); background-position: 50% 50%}
+  </style>
 <body>
-  <audio autoplay src="http://dl.stream.qqmusic.qq.com/C4000036sV01135uqr.m4a?vkey=CE7222AE9853330C87B5A8EFC5A90DA7EEE08DA3AC339DA024480F039F7A369DF2883177BD0EBF0F433EDFF6B05C805A16BB56A12012EA09&guid=7693719753&uin=0&fromtag=66"></audio>
   <div class="bg">
     <canvas id="canvas"></canvas>
   </div>
@@ -38,6 +42,10 @@
     </div>
   </div>
   <div class="g-body">
+    <div class="g-row">
+      <audio id="music" autoplay src="http://dl.stream.qqmusic.qq.com/C400000hscqh1l8UlG.m4a?vkey=7BA78B72C89B7C3BE86A3B0151FABCE67F59B02A7295000B306C8D8FE010243540787A1268B9B4611D6AEDF78A6BFC021F3DA07394E11AC5&guid=7693719753&uin=0&fromtag=66"></audio>
+      <video width="100%" onplay="startPlay" onpause="stopPlay" controls src="http://139.215.197.30/music.qqvideo.tc.qq.com/AT79ZbKrEzrNqU08jbQj0ThY-U-X5g2onL-9pusw-sUA/h00220ueui9.p301.1.mp4?sdtfrom=v1070&type=mp4&vkey=86D86009C528FC410A3A4A763F7DCCB0FDC55C5033338B3B6846CF143F89C1C530D696F84455B6610A6030AE8EF4096E51D7A649BC9EB1058161F8B40D0A6207ECF9980275925E38CC7DD8D5E8C9B6AD92FB46955D44A3F5345FBA58676567FCCE76B7A264C32580048DA88B1D3FF079&platform=70202&br=142&fmt=shd&sp=0&charge=0&vip=0&guid=B24DFD61C98DD109325066DA43F397C2"></video>
+    </div>
     <div class="g-row">
       <div class="m-card">
         <div class="card-top"></div>
@@ -146,5 +154,29 @@
     &copy;沈阳师范大学版权所有
   </div>
 <script type="text/javascript" src="static/js/main.js"></script></body>
-
+<script>
+var played = false
+function audioAutoPlay(id){
+  var audio = document.getElementById(id),
+      play = function(){
+        audio.play()
+        document.removeEventListener("touchstart",play, false)
+      }
+  audio.play()
+  document.addEventListener("WeixinJSBridgeReady", function () {
+    play()
+  }, false)
+  document.addEventListener('YixinJSBridgeReady', function() {
+    play()
+  }, false)
+  document.addEventListener("touchstart",play, false)
+}
+function startPlay() {
+  document.getElementById('music').pause()
+}
+function stopPlay() {
+  audioAutoPlay('music')
+}
+audioAutoPlay('music')
+</script>
 </html>
